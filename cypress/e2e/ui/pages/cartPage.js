@@ -1,3 +1,5 @@
+import { CartPageLocators } from '../../../support/locators';
+
 /**
  * Page object for the Cart page.
  */
@@ -6,16 +8,16 @@ class CartPage {
      * Retrieves the details (name and price) of each item in the cart.
      * @returns {Cypress.Chainable<Array<{name: string, price: number}>>} - A Cypress chainable containing an array of item details.
      */
-    static getCartItemDetails() {
-        return cy.getCartItemDetails(); // Call the custom command to get item details
+    getCartItemDetails() {
+        return cy.getCartItemDetails();
     }
 
     /**
      * Navigates to the checkout page.
      */
-    static goToCheckout() {
-        cy.get('[data-test="checkout"]').click();
+    goToCheckout() {
+        cy.get(CartPageLocators.checkoutButton).click();
     }
 }
 
-export default CartPage;
+export default new CartPage();

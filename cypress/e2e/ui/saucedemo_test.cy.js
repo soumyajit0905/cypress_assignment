@@ -39,7 +39,9 @@ describe('SauceDemo Order Flow', () => {
    * Test case: Completes the full order process.
    */
   it('should complete the order process', () => {
-    LoginPage.login('standard_user', 'secret_sauce'); // Log in using page object
+    const username = Cypress.env('username');
+    const password = Cypress.env('password');
+    LoginPage.login(username, password); // Log in using page object
 
     InventoryPage.addItemsToCart(itemsToAdd); // Add items to cart using page object and custom command
     InventoryPage.goToCart(); // Go to the cart page
